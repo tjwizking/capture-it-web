@@ -1,0 +1,79 @@
+<script type="text/javascript">
+$(function(){  
+  $("#chatData").focus(); 
+  $('<audio id="chatAudio"><source src="notify.ogg" type="audio/ogg"><source src="notify.mp3" type="audio/mpeg"><source src="notify.wav" type="audio/wav"></audio>').appendTo('body');
+  $("#trig").on("click",function(){
+    var a = $("#chatData").val().trim();
+    if(a.length > 0){
+  $("#chatData").val('');   
+  $("#chatData").focus(); 
+     $("<li></li>").html('<img src="small.jpg"/><span>'+a+'</span>').appendTo("#chatMessages");
+    $("#chat").animate({"scrollTop": $('#chat')[0].scrollHeight}, "slow");
+      $('#chatAudio')[0].play();
+    }
+  });
+});
+</script>
+ <div class="col-md-12">
+                     <h2>Checkout</h2>   
+                      
+                       
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+            
+                
+                 <div class="col-md-8">
+                     <div class="panel panel-default">
+                        <div class="panel-heading">
+                           <h4>Swipe Customer loyalty Number</h4>
+                        </div>
+                        <div class="panel-body">
+                                <input name="loyaltyno" placeholder="Swipe  Card" class="form-control input-lg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-2  ">
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4> Checkout Total: 500<%= Product::SystemDefaults::CURRENCY%></h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                               
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Item</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                     <% @carti.each_with_index do |crt,i| %>
+                                    <tbody>
+                                        <tr>
+                                            <td><%= i+1 %></td>
+                                            <td><%= crt.product.try(:name) %></td>
+                                            <td><%= crt.quantity %></td>
+                                            <td><%= crt.product.try(:price) %></td>
+                                        </tr>
+                                        <% end %>
+                                      
+                                    </tbody>
+                                </table>
+
+                                <div style="text-align:left;background:#F7F7B2;padding:1px;"><h4> Payment Due: <%= sumCartPrice(@carti)  %> GHC</h4></div> <br> 
+
+                                <%= link_to(">> Close Sale <<",  carts_close_sale_path(), :class => "btn btn-lg btn-success", :style=>"float:right;", data: { disable_with: 'Closing Sale...' }) %> 
+
+                                <%=     button_to('Cancel', carts_cancel_sale_path(), :method => :post, :class => 'btn  btn-danger', :style=>' margin-top:5px;') %>
+
+
+  </div>
+
+                        </div>
+                    </div>, 
+
+                </div>

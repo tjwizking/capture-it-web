@@ -1,0 +1,104 @@
+ <%= devise_error_messages! %>
+<div class="col-md-8">
+                     <div class="panel panel-default">
+                        <div class="panel-heading">
+                           <h4>Sign up</h4>
+                        </div>
+                        <div class="panel-body">
+                               
+
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+ 
+ <form class="col s12">
+    <div class="row">
+
+      <div class="input-field col s6">
+         <%= f.text_field :BrandName,  :class => "validate",id:"news_agency", autofocus: true %>
+        <label for="news_agency">News Agency Name </label>
+      </div>
+
+      <div class="input-field col s6">
+       <%= f.email_field :email,  id:"email", :class => "validate", autofocus: true %>
+        <label for="email">Email</label>
+      </div>
+
+      <div class="input-field col s6">
+          <% if @validatable %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+    <%= f.password_field :password,id:"password", :class => "validate", autocomplete: "off" %>
+
+        <label for="password">Password</label>
+      </div>
+
+       <div class="input-field col s6">
+
+            <br />
+          <%= f.password_field :password_confirmation,:id=>"confirm", :class => "form-control input-lg", autocomplete: "off" %>
+           <label for="confirm">Confirm Password</label>
+
+      </div>
+
+<div class="input-field col s6">
+
+   <%= f.label "Upload Your News Agency Logo" %><br />
+   <%= 
+                 image_tag "item_placeholder_small.png",class:"image", style:"text-align:center;"
+                
+
+                  %>
+                  <div class="btn btn-lg btn-default">            
+                    <%= f.file_field :logo %>
+              </div>
+  
+</div>
+       <div class="input-field col s6">
+
+          
+        <%#= f.news_agency_channels :news_channels, :id=> "news-channels",:class => "validate", autocomplete: "off" %>
+         <label for="news-channels">Subscribe to Channels Password</label><br>
+         <p><input type="checkbox" id="test5" />
+    <label for="test5">Plane Crash</label>  </p>
+  <p>
+    <input type="checkbox" id="test6" checked="checked" />
+    <label for="test6">Government Official Assault
+</label>
+  </p>
+  <p>
+    <input type="checkbox" id="test7" checked="checked"  />
+    <label for="test7">Accident</label>
+  </p>
+    <p>
+      <input type="checkbox" id="test8"  />
+      <label for="test8">Public Political Events</label>
+  </p>
+
+
+    </div>
+
+  </div>
+
+    
+    
+    
+   
+  </form>
+
+  <div class="form-group">
+    
+
+
+
+
+
+
+  <div class="actions">
+    <%= f.submit "Join Capture IT >>", :class => "btn btn-lg btn-success", :style=>"float:right; margin:20px;" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %> 
+                        </div>
+                    </div>
+                </div>
+

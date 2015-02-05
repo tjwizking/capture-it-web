@@ -1,0 +1,45 @@
+
+            <div style="float:right;">
+              
+
+ <div style="position:fixed;right:40px;z-index:100;"><%= link_to (image_tag "add.png", :width => "3", :height => 3,class:"r gE YqfB2e"), new_product_path, :title =>"Add New Product" %></div>
+
+</div>
+
+<h1>Manage Your Product</h1>
+<h4>Add New items to Sell</h4>
+<br>
+
+    <% @products.each do |product| %>
+    <div class="col-md-4 col-lg-4 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                         <%=  link_to product.name, product, :title=>"Edit this product" %>                     
+                        </div>
+                        <div class="panel-body">
+                            <center>
+                              <%= link_to (image_tag product.image_path.url(:thumb),class:"image", style:"text-align:center;"),  product %>
+                            </center>
+
+                            <p style="text-align: right;">
+                               <%= if (product.in_stock =="0") 
+                                "Out of stock" 
+                            elsif "n"
+                                
+                                end %>    
+                               <%= link_to 'delete', product, class: "glyphicon glyphicon-trash", method: :delete, data: { confirm: 'Are you sure?' }, :title =>"Delete this product" %></p>
+                        </div>
+                        <div class="panel-footer">
+                           <%= product.price %> <%= Product::SystemDefaults::CURRENCY %> 
+
+                        </div>
+                    </div>
+    </div>
+        <td></td>
+      </tr>
+    <% end %>
+
+<br>
+
+
+

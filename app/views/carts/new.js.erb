@@ -1,0 +1,14 @@
+var thisdiv = "item";
+$(function() {
+//activate toast message
+
+          
+          $(".addtocartdiv").click(function()
+		 	{
+		 		 thisdiv = $(this.children[0].children[0]).html()
+		     	//toast(thisdiv + " was added to cart", 4000)
+			});
+
+          	toast(thisdiv + " was added to cart", 4000)
+		     	
+});

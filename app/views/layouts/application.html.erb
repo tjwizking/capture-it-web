@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+<head>
+  <title>Retailstar</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <%= stylesheet_link_tag    'application', media: 'screen,projection', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+<!-- Walk me code start -->
+
+ <script type="text/javascript">
+ (function() {var walkme = document.createElement('script'); walkme.type = 'text/javascript'; walkme.async = true; walkme.src = 'https://d3b3ehuo35wzeh.cloudfront.net/users/0d37ff80fdc744f8b176af21a8087c68/walkme_0d37ff80fdc744f8b176af21a8087c68_https.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(walkme, s);})();
+ </script>
+
+<!-- walkme code end -->
+
+<!-- inspectlet code start -->
+
+<!-- Begin Inspectlet Embed Code -->
+<script type="text/javascript" id="inspectletjs">
+  window.__insp = window.__insp || [];
+  __insp.push(['wid', 1243636820]);
+  (function() {
+    function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); }
+    if (window.attachEvent){
+      window.attachEvent('onload', __ldinsp);
+    }else{
+      window.addEventListener('load', __ldinsp, false);
+    }
+  })();
+</script>
+<!-- End Inspectlet Embed Code -->
+
+
+</head>
+<ul id="account" class="dropdown-content">
+  <li><a href="#!">Change password</a></li>
+  <li><a href="#!">Settings</a></li>
+  <li class="divider"></li>
+  <li> <% if user_signed_in? %>
+  Logged in as <%= current_user.email %> | Last access : 30 May 2014 | 
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-danger square-btn-adjust'  %>
+<% else %>
+  <%= link_to "Login", new_user_session_path, :class => 'btn btn-danger square-btn-adjust'  %> |
+  <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-danger square-btn-adjust'  %> 
+<% end %></li>
+  <li><a href="#!">Logout</a></li>
+</ul>
+<div class="navbar-fixed">
+<nav class="#880e4f pink darken-4" role="navigation">
+    <div class="container">
+
+      <% if current_user == nil %>
+                        <%= image_tag "retailstar_logo.png", :class=>"responsive-img",  :style=>"padding:10px;" %>
+                      <% else %>
+                        <%= image_tag current_user.logo.url(:small) , :style=>"padding:10px; "  %>
+                    <% end %>
+      
+        <ul id="nav-mobile" class="right side-nav">
+          <li><a href="/products" class="medium mdi-editor-attach-money"> Start Selling</a></li>
+          <li><a href="/dashboard"  class="small mdi-action-dashboard">  My Dashboard</a></li>
+          <li><a href="/products/manage" class="small mdi-action-search"> Manage Inventory </a></li>
+          
+          <li><a class="dropdown-button" href="#!" data-activates="account">Account<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+
+          <li class="cartcounter"> <%= link_to  carts_checkout_path() do %>
+              <span id="cartcounter" class="cartcounter"><%= CartTotal(session.id) %> </span>items added
+              <% end %>
+          </li>
+
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+   <% if notice %>
+                        <h4><span class="font-size:15px; color:white; background:light-blue;" ><%= notice %></span></h4>
+                      <% end %>
+                      <% if alert %>
+                       <span class="color:red;"> <%= alert %></span>
+                      <% end %>
+    <main>
+        <%= yield %>
+    </main>
+
+    <div class="container">
+      <div class="row center">
+       
+      </div>
+    </div>
+
+ 
+
+
+  
+   
+  </div>
+
+  <footer class="black">
+   
+    <div class="footer-copyright">
+      <div class="container">
+     Made with Love <a class="pink darken-4" href="http://meltwater.org">from Meltwater</a>
+      </div>
+    </div>
+  </footer>  
+
+
+  <!--  Scripts-->
+
+   
+ <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+   <%= javascript_include_tag 'application' %>
+</html>
+
+
+         
+                    
+          

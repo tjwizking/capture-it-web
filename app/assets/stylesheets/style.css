@@ -1,0 +1,77 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+.lowzindex
+{
+	z-index: 998;
+}
+
+.mediumzindex
+{
+	z-index:1000;
+}
+.highzindex
+{
+	z-index: 1001;
+}
+
+.higherzindex
+{
+	z-index: 1002;
+}
+
+.cartcounter
+{
+	font-size:20px;
+	
+	z-index:10;
+}
+
+.fontfamoveride
+{
+	font-family: roboto;
+	line-height: 48px;
+	font-size: 18px;
+	font-weight: 300;
+}
+.add-item
+{
+	border: 0px solid gray;
+}
+
+.remove-item
+{
+	border:none;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.removemarginbottom
+{
+	margin-bottom:0px;
+}
+
+.card-margin
+{margin:0px 22px 20px 22px;}
+
+@media only screen and (min-width : 601px) {
+
+   .card .card-title{ font-size: 18px; }
+
+}
+
+.noshadow
+{
+
+	-webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 10px 0 rgba(0, 0, 0, 0.0);
+  -moz-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0 rgba(0, 0, 0, 0.0);
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0 rgba(0, 0, 0, 0.0; }
+  
+}
+
