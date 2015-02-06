@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
+  root 'dashboard#welcome'
   resources :dashboard
   devise_for :users, :controllers => { registrations: 'registrations' }
   match ':controller(/:action(/:id))', :via => [:get, :post] 
-  get '/dashboard/welcome' => 'dashboard#welcome'  
+  #get '/dashboard/welcome' => 'dashboard#welcome'  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
