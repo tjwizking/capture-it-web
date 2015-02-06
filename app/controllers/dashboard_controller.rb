@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
 	
 def show
 end
+
 	def welcome
 
 		uri = URI.parse("http://text-processing.com/api/sentiment/")
@@ -20,10 +21,10 @@ end
 
  		respond_to do |format|
       if response == 101
-        format.html { redirect_to  dashboard, notice: 'Welcome' }
+        format.html { redirect_to  dashboard_welcome_path, notice: 'Welcome' }
         UserMailer.welcome_email(@user).deliver
       else
-        format.html { redirect_to dashboard, notice: res}
+        format.html { redirect_to dashboard_welcome_path, notice: res}
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end

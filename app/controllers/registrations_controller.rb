@@ -21,12 +21,13 @@ class RegistrationsController < Devise::RegistrationsController
 
 
 
-	uri = URI.parse("http://captureithack.pythonanywhere.com/user/new")
+	uri = URI.parse("http://text-processing.com/api/sentiment/")
 
 	http = Net::HTTP.new(uri.host, uri.port)
 
 	request = Net::HTTP::Post.new(uri.request_uri)
-	request.set_form_data({"username" => "ayo","email" => "ayo@mal","password" => "love" })
+	#request.set_form_data({"username" => "ayo","email" => "ayo@mal","password" => "love" })
+  request.set_form_data({"text" => "loce" })
 	#http.use_ssl = true
 	response = http.request(request)
 	res=  response.body
@@ -36,7 +37,7 @@ class RegistrationsController < Devise::RegistrationsController
 
  		respond_to do |format|
       if response == 101
-        format.html { redirect_to dashboard_welcome_path, notice: res+'Welcome' }
+        format.html { redirect_to dashboard_welcome_path, notice: 'Welcome' }
         UserMailer.welcome_email(@user).deliver
       else
         format.html { redirect_to  dashboard_welcome_path, notice: res}
