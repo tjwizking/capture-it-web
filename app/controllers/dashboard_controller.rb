@@ -5,7 +5,12 @@ end
 
 	def welcome
 
-		uri = URI.parse("http://text-processing.com/api/sentiment/")
+	#get the incoming picture
+
+	#get the currents user category - where, query photos, check if n
+
+
+	uri = URI.parse("http://text-processing.com/api/sentiment/")
 
 	http = Net::HTTP.new(uri.host, uri.port)
 
