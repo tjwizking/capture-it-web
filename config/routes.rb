@@ -1,30 +1,9 @@
 Rails.application.routes.draw do
 
-  
-
-  resources :feedbacks
-
+  resources :dashboard
   devise_for :users, :controllers => { registrations: 'registrations' }
-  
- # root 'products#index'
-  root 'products#manage'
-  get '/products/manage' => 'products#manage'
-  
-  resources :products
   match ':controller(/:action(/:id))', :via => [:get, :post] 
-  
-  post  '/carts/checkout' => 'carts#checkout'
-  post '/carts/close_sale' => 'carts#close_sale'
-  post '/carts/cancel_sale' => 'carts#cancel_sale'
-
- 
-  
-  resources :carts
-
-  resources :products do
-    resources :carts  
-  end
-    
+  get '/dashboard/welcome' => 'dashboard#welcome'  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
