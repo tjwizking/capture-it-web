@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
 
 
-#can can gem
-gem 'cancancan', '~> 1.10'
-#new relic gem
-gem "newrelic_rpm"
+
 
 gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
