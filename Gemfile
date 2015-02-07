@@ -8,6 +8,7 @@ gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
 gem 'rails', '4.1.6'
 # Use pg as the database for Active Record
 
+gem 'httparty'
 gem 'pg'
 gem 'rails_12factor'
 #gem 'sprockets_better_errors'

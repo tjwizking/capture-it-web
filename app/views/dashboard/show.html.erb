@@ -1,7 +1,25 @@
                 <div class="row">
                     <div class="col-md-12">
-                     <h4>Incoming News</h4>   
-                       
+                     <center><h4>Incoming Photo News</h4>   </center>
+                     <%
+                       newPhotos = HTTParty.get "https://teamcaptureitapi.herokuapp.com/photos.json"
+												
+											
+											user_data = JSON.parse(newPhotos)
+												binding.pry
+									    users = user_data.map do |line|
+									      u = User.new
+									      u.external_id = line['user']['id']
+									      # set name value however you want to do that
+									      #u.save
+									      
+									    end
+		  							
+											%>
+											<center>
+											 <img src=https://teamcaptureitapi.herokuapp.com/<%= parsed_response[0]["image"] %> height="500px"/>
+											</center>
+
                     </div>
                 </div>              
                 
